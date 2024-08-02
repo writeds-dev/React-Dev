@@ -1,38 +1,46 @@
-import React from 'react';
-import Click from './Click';
-
+import React from "react";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
+  const link = [
+    { id: 1, title: "Home", links: "home" },
+    { id: 2, title: "Features", links: "features" },
+    { id: 3, title: "Projects", links: "Projects" },
+    { id: 4, title: "Testimonial", links: "Testimonial" },
+    { id: 5, title: "Resume", links: "Resume" },
+    { id: 6, title: "Contact", links: "Contact" },
+  ];
   return (
-    <div className=" max-w-screen-xl mx-auto border-co flex items-center
-     font-serif py-5 border-b-2  border-zinc-400">
-      <div className="flex justify-center ">
-        <img
-          className="ml-2 "
-          src="https://cdn.prod.website-files.com/6334198f239547d0f9cd84b3/63349803431f1562dccf1802_refokus%20logo.svg"
-          alt=""
-        />
-        <div className="links flex items-center gap-20 ml-20">
-          {["Home", "Work", "Culture", "", "News"].map((elem, index) =>
-            elem.length === 0 ? (
-              <span className="w-[2px] h-10 bg-zinc-800"></span>
-            ) : (
-              
-              <a className="text-md text-white " href="#">
-                {index === 1 ? (
-                  <span className="inline-block mb-1 p-1  w-2 h-1 rounded-full bg-green-500"></span>
-                ) : (
-                  ""
-                )}
-                {elem}
-              </a>
-            )
-          )}
-        </div>
+    <div
+      className=" text-white  w-full sticky top-0 z-50 bg-[#1A2130]  h-24 flex justify-between items-center
+     border-b-[1px] border-gray-950  "
+    >
+      <div className="text-4xl font-bold cursor-pointer leading-none">
+        <h1>DEV.</h1>
       </div>
-      <Click />
+      <div className="h-20">
+        <ul className="flex items-center h-20 gap-10 text-black font-semibold  ">
+          {link.map(({ id, title, links }) => (
+            <li
+              className="text-base font-normal text-gray-300 hover:text-red-400 cursor-pointer duration-200 leading-none tracking-wide"
+              key={id}
+            >
+              <Link
+                activeClass="active"
+                to={links}
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
 export default Navbar;

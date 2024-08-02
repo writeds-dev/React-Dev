@@ -1,27 +1,19 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import Work from "./Components/Work";
-import Stripes from "./Components/Stripes";
-import Products from "./Components/Products";
-import Marques from "./Components/Marques";
-import Cards from "./Components/Cards";
-import Footer from "./Components/Footer";
+import Banner from "./Components/Banner/Banner";
+import Features from "./Components/Features/Features";
 import LocomotiveScroll from "locomotive-scroll";
 
 
-
-
 const App = () => {
-  const locomotiveScroll = new LocomotiveScroll();
+   const locomotiveScroll = new LocomotiveScroll();
   return (
-    <div className=" w-full  bg-zinc-900 font-['satoshi] ">
-      <Navbar />
-      <Work />
-      <Stripes />
-      <Products />
-      <Marques />
-      <Cards />
-    <Footer/>
+    <div className="w-full h-auto  bg-[#1A2130] ">
+      <div className="max-w-screen-2xl mx-auto px-16 ">
+        <Navbar />
+        <Banner />
+        <Features />
+      </div>
     </div>
   );
 };
